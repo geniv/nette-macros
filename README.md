@@ -30,6 +30,7 @@ extensions:
 
 neon configure extension:
 ```neon
+# macros
 macros:
     IfCurrentIn: true
     SubmitButton: true
