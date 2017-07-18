@@ -1,5 +1,7 @@
 <?php
 
+namespace Macros;
+
 use Latte\Compiler;
 use Latte\MacroNode;
 use Latte\Macros\MacroSet;
@@ -7,16 +9,18 @@ use Latte\PhpWriter;
 
 
 /**
- * Class LatteMacroIfCurrentIn
- * rozsireni latte o IfCurrentIn
+ * Class MacroIfCurrentIn
+ *
+ * @author  geniv
+ * @package Macros
  */
-class LatteMacroIfCurrentIn extends MacroSet
+class MacroIfCurrentIn extends MacroSet
 {
 
     /**
-     * instalator
+     * Register latte macros.
      *
-     * @param Latte\Compiler $compiler
+     * @param Compiler $compiler
      */
     public static function install(Compiler $compiler)
     {

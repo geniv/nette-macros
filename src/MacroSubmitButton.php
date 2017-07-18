@@ -1,21 +1,26 @@
 <?php
 
+namespace Macros;
+
 use Latte\CompileException;
 use Latte\Compiler;
 use Latte\MacroNode;
 use Latte\Macros\MacroSet;
 use Latte\PhpWriter;
 
+
 /**
- * Some new nette form latte macros
- * @author Pavel Železný <info@pavelzelezny.cz> edit by Radek Frystak <geniv.radek@gmail.com>
+ * Class MacroSubmitButton
+ *
+ * @author  geniv, inspired by Pavel Železný <info@pavelzelezny.cz>
+ * @package Macros
  */
-class ButtonMacros extends MacroSet
+class MacroSubmitButton extends MacroSet
 {
 
     /**
-     * Register latte macros
-     * @author Pavel Železný <info@pavelzelezny.cz>
+     * Register latte macros.
+     *
      * @param Compiler $compiler
      */
     public static function install(Compiler $compiler)
@@ -28,7 +33,7 @@ class ButtonMacros extends MacroSet
 
     /**
      * Renders button beginning tag
-     * @author Pavel Železný <info@pavelzelezny.cz>
+     *
      * @param MacroNode $node
      * @param PhpWriter $writer
      * @return void
@@ -49,7 +54,7 @@ class ButtonMacros extends MacroSet
 
     /**
      * Renders button end tag
-     * @author Pavel Železný <info@pavelzelezny.cz>
+     *
      * @param MacroNode $node
      * @param PhpWriter $writer
      * @return void
@@ -68,7 +73,7 @@ class ButtonMacros extends MacroSet
 
     /**
      * Render button caption
-     * @author Pavel Železný <info@pavelzelezny.cz>
+     *
      * @param MacroNode $node
      * @param PhpWriter $writer
      * @return void
