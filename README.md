@@ -62,5 +62,5 @@ SubmitButton:
 
 Confirm:
 ```latte
-<a href="..." {confirm 'Opravdu smazat?'}>...</a>
+<a href="..." {confirm 'Really delete?'}>delete</a>
 ```
