@@ -30,6 +30,7 @@ extensions:
 
 neon configure extension:
 ```neon
+# macros
 macros:
     IfCurrentIn: true
     SubmitButton: true
@@ -61,5 +62,5 @@ SubmitButton:
 
 Confirm:
 ```latte
-<a href="..." {confirm 'Opravdu smazat?'}>...</a>
+<a href="..." {confirm 'Really delete?'}>delete</a>
 ```

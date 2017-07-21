@@ -2,7 +2,6 @@
 
 namespace Macros;
 
-use Latte\CompileException;
 use Latte\Compiler;
 use Latte\MacroNode;
 use Latte\Macros\MacroSet;
@@ -26,8 +25,8 @@ class MacroSubmitButton extends MacroSet
     public static function install(Compiler $compiler)
     {
         $me = new static($compiler);
-        $me->addMacro('button', array($me, 'macroButton'), array($me, 'macroButtonEnd'));
-        $me->addMacro('caption', array($me, 'macroCaption'));
+        $me->addMacro('button', [$me, 'macroButton'], [$me, 'macroButtonEnd']);
+        $me->addMacro('caption', [$me, 'macroCaption']);
     }
 
 
@@ -36,7 +35,7 @@ class MacroSubmitButton extends MacroSet
      *
      * @param MacroNode $node
      * @param PhpWriter $writer
-     * @return void
+     * @return string
      */
     public function macroButton(MacroNode $node, PhpWriter $writer)
     {
@@ -57,7 +56,7 @@ class MacroSubmitButton extends MacroSet
      *
      * @param MacroNode $node
      * @param PhpWriter $writer
-     * @return void
+     * @return string
      */
     public function macroButtonEnd(MacroNode $node, PhpWriter $writer)
     {
@@ -76,7 +75,7 @@ class MacroSubmitButton extends MacroSet
      *
      * @param MacroNode $node
      * @param PhpWriter $writer
-     * @return void
+     * @return string
      */
     public function macroCaption(MacroNode $node, PhpWriter $writer)
     {

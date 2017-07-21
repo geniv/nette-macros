@@ -2,10 +2,10 @@
 
 namespace Macros;
 
-use Nette\Latte\Macros\MacroSet;
-use Nette\Latte\PhpWriter;
-use Nette\Latte\MacroNode;
-use Nette\Latte\Compiler;
+use Latte\Macros\MacroSet;
+use Latte\PhpWriter;
+use Latte\MacroNode;
+use Latte\Compiler;
 
 
 /**
@@ -25,7 +25,7 @@ class MacroConfirm extends MacroSet
     public static function install(Compiler $compiler)
     {
         $me = new static($compiler);
-        $me->addMacro('confirm', NULL, NULL, array($me, 'macroAttrLinkConfirm'));
+        $me->addMacro('confirm', [$me, 'macroAttrLinkConfirm']);
     }
 
 
@@ -36,6 +36,6 @@ class MacroConfirm extends MacroSet
      */
     public function macroAttrLinkConfirm(MacroNode $node, PhpWriter $writer)
     {
-        return $writer->write('?> onclick="return confirm(\'<?php echo %escape("' . $node->args . '")?>\');" <?php');
+        return $writer->write('?> onclick="return confirm(%node.args);" <?php');
     }
 }

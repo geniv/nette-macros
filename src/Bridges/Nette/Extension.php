@@ -35,13 +35,13 @@ class Extension extends CompilerExtension
         // load macro to latte
         $latteFactory = $builder->getDefinition('latte.latteFactory');
         if ($config['IfCurrentIn']) {
-            $latteFactory->addSetup('?->onCompile[] = function ($engine) { ' . MacroIfCurrentIn::class . '($engine->getCompiler()); }', ['@self']);
+            $latteFactory->addSetup(MacroIfCurrentIn::class . '::install(?->getCompiler())', ['@self']);
         }
         if ($config['SubmitButton']) {
-            $latteFactory->addSetup('?->onCompile[] = function ($engine) { ' . MacroSubmitButton::class . '($engine->getCompiler()); }', ['@self']);
+            $latteFactory->addSetup(MacroSubmitButton::class . '::install(?->getCompiler())', ['@self']);
         }
         if ($config['Confirm']) {
-            $latteFactory->addSetup('?->onCompile[] = function ($engine) { ' . MacroConfirm::class . '($engine->getCompiler()); }', ['@self']);
+            $latteFactory->addSetup(MacroConfirm::class . '::install(?->getCompiler())', ['@self']);
         }
     }
 }
