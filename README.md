@@ -33,13 +33,13 @@ neon configure extension:
 # macros
 macros:
     IfCurrent: false
-    IfCurrentIn: true
-    IfCurrentSwitch: false
+    IfCurrentIn: false
+    IfCurrentSwitch: true
     SubmitButton: false
     Confirm: true
 ```
 
-IfCurrent (n:class="$presenter->linkCurrent ? ...“):
+IfCurrent (n:class="$presenter->linkCurrent ? ..."):
 ```latte
 <div n:ifCurrent="Homepage:default">aktivni sekce Homepage:default</div>
 {ifCurrent 'Homepage:default'}aktivni sekce Homepage:default{/ifCurrent}
@@ -56,8 +56,7 @@ IfCurrentSwitch:
 {ifCurrentSwitch}
     {ifCurrentCase 'Homepage:default'}
         layout-variant-hp
-    {ifCurrentCase 'Lokalita:mapa'}
-    {ifCurrentCase 'Lokalita:panorama'}
+    {ifCurrentCase 'Homepage:vzor'}
         layout-variant-location
     {ifCurrentDefault}
         layout-variant-sub
