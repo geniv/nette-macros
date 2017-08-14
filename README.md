@@ -32,15 +32,36 @@ neon configure extension:
 ```neon
 # macros
 macros:
+    IfCurrent: false
     IfCurrentIn: true
-    SubmitButton: true
+    IfCurrentSwitch: false
+    SubmitButton: false
     Confirm: true
+```
+
+IfCurrent (n:class="$presenter->linkCurrent ? ...“):
+```latte
+<div n:ifCurrent="Homepage:default">aktivni sekce Homepage:default</div>
+{ifCurrent 'Homepage:default'}aktivni sekce Homepage:default{/ifCurrent}
 ```
 
 IfCurrentIn:
 ```latte
 <div n:ifCurrentIn="'News:default', 'Homepage:default'">Hello, n:macro</div>
 {ifCurrentIn 'News:default', 'Homepage:default'}Hello, standart macro{/ifCurrentIn}
+```
+
+IfCurrentSwitch:
+```latte
+{ifCurrentSwitch}
+    {ifCurrentCase 'Homepage:default'}
+        layout-variant-hp
+    {ifCurrentCase 'Lokalita:mapa'}
+    {ifCurrentCase 'Lokalita:panorama'}
+        layout-variant-location
+    {ifCurrentDefault}
+        layout-variant-sub
+{/ifCurrentSwitch}
 ```
 
 SubmitButton:
