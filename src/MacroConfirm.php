@@ -25,7 +25,7 @@ class MacroConfirm extends MacroSet
     public static function install(Compiler $compiler)
     {
         $me = new static($compiler);
-        $me->addMacro('confirm', [$me, 'macroAttrLinkConfirm']);
+        $me->addMacro('confirm', [$me, 'macroConfirm']);
     }
 
 
@@ -34,7 +34,7 @@ class MacroConfirm extends MacroSet
      * @param PhpWriter $writer
      * @return string
      */
-    public function macroAttrLinkConfirm(MacroNode $node, PhpWriter $writer)
+    public function macroConfirm(MacroNode $node, PhpWriter $writer)
     {
         return $writer->write('?> onclick="return confirm(%node.args);" <?php');
     }
