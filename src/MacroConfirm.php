@@ -30,12 +30,14 @@ class MacroConfirm extends MacroSet
 
 
     /**
+     * Macro confirm.
+     *
      * @param MacroNode $node
      * @param PhpWriter $writer
      * @return string
      */
     public function macroConfirm(MacroNode $node, PhpWriter $writer)
     {
-        return $writer->write('?> onclick="return confirm(%node.args);" <?php');
+        return $writer->write('?> onclick="return confirm(\'<?php echo LR\Filters::escapeHtmlAttr(%node.args) ?>\');" <?php');
     }
 }
