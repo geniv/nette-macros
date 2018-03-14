@@ -83,4 +83,5 @@ SubmitButton:
 Confirm:
 ```latte
 <a href="..." {confirm 'Really delete?'}>delete</a>
+<a href="..." {confirm $presenter->translator->translate('translate-confirm')}>delete</a>
 ```
