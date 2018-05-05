@@ -3,9 +3,7 @@
 namespace Macros;
 
 use Latte\Compiler;
-use Latte\MacroNode;
 use Latte\Macros\MacroSet;
-use Latte\PhpWriter;
 
 
 /**
