@@ -20,11 +20,11 @@ class Extension extends CompilerExtension
 {
     /** @var array default values */
     private $defaults = [
-        'IfCurrent'       => false,
-        'IfCurrentIn'     => false,
-        'IfCurrentSwitch' => false,
-        'SubmitButton'    => false,
-        'Confirm'         => false,
+        'ifCurrent'       => false,
+        'ifCurrentIn'     => false,
+        'ifCurrentSwitch' => false,
+        'submitButton'    => false,
+        'confirm'         => false,
     ];
 
 
@@ -38,19 +38,19 @@ class Extension extends CompilerExtension
 
         // load macro to latte
         $latteFactory = $builder->getDefinition('latte.latteFactory');
-        if ($config['IfCurrent']) {
+        if ($config['ifCurrent']) {
             $latteFactory->addSetup(MacroIfCurrent::class . '::install(?->getCompiler())', ['@self']);
         }
-        if ($config['IfCurrentIn']) {
+        if ($config['ifCurrentIn']) {
             $latteFactory->addSetup(MacroIfCurrentIn::class . '::install(?->getCompiler())', ['@self']);
         }
-        if ($config['IfCurrentSwitch']) {
+        if ($config['ifCurrentSwitch']) {
             $latteFactory->addSetup(MacroIfCurrentSwitch::class . '::install(?->getCompiler())', ['@self']);
         }
-        if ($config['SubmitButton']) {
+        if ($config['submitButton']) {
             $latteFactory->addSetup(MacroSubmitButton::class . '::install(?->getCompiler())', ['@self']);
         }
-        if ($config['Confirm']) {
+        if ($config['confirm']) {
             $latteFactory->addSetup(MacroConfirm::class . '::install(?->getCompiler())', ['@self']);
         }
     }
