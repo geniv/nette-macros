@@ -32,11 +32,11 @@ neon configure extension:
 ```neon
 # macros
 macros:
-    IfCurrent: false
-    IfCurrentIn: false
-    IfCurrentSwitch: true
-    SubmitButton: false
-    Confirm: true
+    ifCurrent: false
+    ifCurrentIn: false
+    ifCurrentSwitch: true
+    submitButton: false
+    confirm: true
 ```
 
 IfCurrent (n:class="$presenter->linkCurrent ? ..."):
@@ -83,4 +83,5 @@ SubmitButton:
 Confirm:
 ```latte
 <a href="..." {confirm 'Really delete?'}>delete</a>
+<a href="..." {confirm $presenter->translator->translate('translate-confirm')}>delete</a>
 ```
