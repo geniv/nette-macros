@@ -25,7 +25,7 @@ class MacroConfirm extends MacroSet
     public static function install(Compiler $compiler)
     {
         $me = new static($compiler);
-        $me->addMacro('confirm', [$me, 'macroConfirm']);
+        $me->addMacro('confirm', [$me, 'macroConfirm'], null, [$me, 'macroConfirm']);
     }
 
 
