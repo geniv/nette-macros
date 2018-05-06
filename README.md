@@ -25,18 +25,7 @@ Include in application
 neon configure:
 ```neon
 extensions:
-    macros: Macros\Bridges\Nette\Extension
-```
-
-neon configure extension:
-```neon
-# macros
-macros:
-    ifCurrent: false
-    ifCurrentIn: false
-    ifCurrentSwitch: true
-    submitButton: false
-    confirm: true
+    - Macros\Bridges\Nette\Extension
 ```
 
 IfCurrent (n:class="$presenter->linkCurrent ? ..."):
@@ -66,14 +55,14 @@ IfCurrentSwitch:
 SubmitButton:
 ```latte
 {form formName}
-    {button controlName class=>"btn"}
+    {button controlName, class=>"btn"}
         <i class="icon icon-ok"></i>
         {caption}
     {/button}
 {/form}
 
 {form formName}
-	{button $_form['controlName'] class=>"btn"}
+	{button $_form['controlName'], class=>"btn"}
 		<i class="icon icon-ok"></i>
 		{caption}
 	{/button}
@@ -83,5 +72,6 @@ SubmitButton:
 Confirm:
 ```latte
 <a href="..." {confirm 'Really delete?'}>delete</a>
+<a href="..." n:confirm="Really delete?">delete</a>
 <a href="..." {confirm $presenter->translator->translate('translate-confirm')}>delete</a>
 ```

@@ -2,6 +2,7 @@
 
 namespace Macros;
 
+use Latte\CompileException;
 use Latte\Compiler;
 use Latte\MacroNode;
 use Latte\Macros\MacroSet;
@@ -31,6 +32,8 @@ class MacroIfCurrent extends MacroSet
 
     /**
      * {ifCurrent destination [,] [params]}
+     *
+     * @throws CompileException
      */
     public function macroIfCurrent(MacroNode $node, PhpWriter $writer)
     {
