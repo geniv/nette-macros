@@ -38,6 +38,6 @@ class MacroConfirm extends MacroSet
      */
     public function macroConfirm(MacroNode $node, PhpWriter $writer)
     {
-        return $writer->write('?> onclick="return confirm(\'<?php echo LR\Filters::escapeHtmlAttr(%node.args) ?>\');" <?php');
+        return $writer->write('?> onclick="return confirm(\'<?php echo %escape(%node.word) ?>\');" <?php');
     }
 }
