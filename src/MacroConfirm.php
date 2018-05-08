@@ -2,6 +2,7 @@
 
 namespace Macros;
 
+use Latte\CompileException;
 use Latte\Macros\MacroSet;
 use Latte\PhpWriter;
 use Latte\MacroNode;
@@ -25,7 +26,7 @@ class MacroConfirm extends MacroSet
     public static function install(Compiler $compiler)
     {
         $me = new static($compiler);
-        $me->addMacro('confirm', [$me, 'macroConfirm'], null, [$me, 'macroConfirm']);
+        $me->addMacro('confirm', null, null, [$me, 'macroConfirm']);
     }
 
 
@@ -35,9 +36,13 @@ class MacroConfirm extends MacroSet
      * @param MacroNode $node
      * @param PhpWriter $writer
      * @return string
+     * @throws CompileException
      */
     public function macroConfirm(MacroNode $node, PhpWriter $writer)
     {
-        return $writer->write('?> onclick="return confirm(\'<?php echo %escape(%node.word) ?>\');" <?php');
+        if ($node->modifiers) {
+            throw new CompileException('Modifiers are not allowed in ' . $node->getNotation());
+        }
+        return $writer->write('echo " onclick=\"return confirm(\'" . %escape(%node.args) . "\')\""');
     }
 }
