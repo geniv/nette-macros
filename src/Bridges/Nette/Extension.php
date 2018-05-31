@@ -3,6 +3,7 @@
 namespace Macros\Bridges\Nette;
 
 use Macros\MacroConfirm;
+use Macros\MacroDataStream;
 use Macros\MacroIfCurrent;
 use Macros\MacroSubmitButton;
 use Nette\DI\CompilerExtension;
@@ -29,5 +30,6 @@ class Extension extends CompilerExtension
         $latteFactory->addSetup(MacroIfCurrent::class . '::install(?->getCompiler())', ['@self']);
         $latteFactory->addSetup(MacroSubmitButton::class . '::install(?->getCompiler())', ['@self']);
         $latteFactory->addSetup(MacroConfirm::class . '::install(?->getCompiler())', ['@self']);
+        $latteFactory->addSetup(MacroDataStream::class . '::install(?->getCompiler())', ['@self']);
     }
 }

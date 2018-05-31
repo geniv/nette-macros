@@ -74,3 +74,10 @@ Confirm:
 <a href="..." n:confirm="'Really delete?'">delete</a>
 <a href="..." n:confirm="$presenter->translator->translate('translate-confirm')">delete</a>
 ```
+
+DataStream:
+```latte
+{dataStream}/www/images/logo.png{/dataStream}
+```
+
+_if image does not exist then result null_
