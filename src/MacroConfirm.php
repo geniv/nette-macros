@@ -43,6 +43,6 @@ class MacroConfirm extends MacroSet
         if ($node->modifiers) {
             throw new CompileException('Modifiers are not allowed in ' . $node->getNotation());
         }
-        return $writer->write('$_data = %escape(%node.args); echo ($_data ? " onclick=\"return confirm(\'" . $_data . "\')\"" : "");');
+        return $writer->write('$_data = %escape(%node.args); echo ($_data ? " onclick=\"return confirm(\'" . $_data . "\');\"" : "");');
     }
 }
